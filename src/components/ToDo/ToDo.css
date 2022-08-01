@@ -1,0 +1,14 @@
+.todo {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+.completed {
+    color: yellow;
+}
+.gaaaaa:hover {
+    fill: blue;
+}

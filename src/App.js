@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import { ModalAddToDo } from "./components/ModalAddToDo";
+import { ToDoList } from "./components/ToDoList/index";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const localStoreTodos =
+        localStorage.getItem("ToDo") &&
+        JSON.parse(localStorage.getItem("ToDo"));
+
+    const [todos, setTodos] = useState(localStoreTodos || []);
+    const [modal, setModal] = useState(false);
+
+    const saveTodos = (todos) => {
+        const strigifiedArr = JSON.stringify(todos);
+        localStorage.setItem("ToDo", strigifiedArr);
+        setTodos(todos);
+    };
+    function addTodo(text) {
+        let newTodos = [...todos];
+        const newTodoItem = {
+            task: text,
+            completed: false,
+            id: new Date().getTime(),
+        };
+        newTodos.push(newTodoItem);
+        saveTodos(newTodos);
+    }
+
+    return (
+        <div className="App">
+            <header>
+                <h1>Things To Do</h1>
+            </header>
+            <div className="main">
+                <ToDoList todos={todos} saveTodos={saveTodos} />
+                {modal && (
+                    <ModalAddToDo
+                        modal={modal}
+                        setModal={setModal}
+                        addTodo={addTodo}
+                    />
+                )}
+                <button
+                    type="button"
+                    onClick={() => {
+                        setModal(!modal);
+                    }}
+                >
+                    Add a new To Do
+                </button>
+            </div>
+        </div>
+    );
 }
 
 export default App;

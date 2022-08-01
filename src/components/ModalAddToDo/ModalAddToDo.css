@@ -1,0 +1,25 @@
+.new-todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #f2e5d5;
+}
+.button-container {
+    width: 50%;
+}
+button {
+    width: 33%;
+}
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.296);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
