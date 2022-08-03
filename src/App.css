@@ -1,9 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Caveat", cursive;
 }
 .App {
     text-align: center;
     position: relative;
+}
+html {
+    background-color: #f2e5d5;
+}
+.logo {
+    background-image: url("./assets/imgs/logo.png");
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    height: 65px;
+}
+header {
+    padding-top: 1em;
+    margin-bottom: 0.5em;
+}
+.todo-counter {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.todo-search {
+    width: 250px;
+    border: none;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 0.5em;
+    background: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5em;
+}
+.todo-container {
+    margin-bottom: 1em;
+}
+
+.main {
+    width: 375px;
+    margin: 0 auto;
+}
+.add-todo-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2em;
+}
+.add-todo-btn {
+    width: 100px;
+    align-self: flex-end;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.506);
+    margin-right: 1.5em;
+    box-shadow: 0px 4px 50px -24px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.add-todo-btn:hover {
+    background: white;
+}
+@media only screen and (min-width: 1024px) {
+    .main {
+        width: 700px;
+        margin: 0 auto;
+    }
+    .logo {
+        background-size: 400px;
+        height: 140px;
+    }
+    .todo-counter {
+        font-size: 2rem;
+    }
+    .todo-search {
+        width: 350px;
+        font-size: 1.6rem;
+    }
+    .todo {
+        font-size: 1.6rem;
+    }
+    .add-todo-btn {
+        width: 150px;
+        height: 30px;
+        font-size: 1.5rem;
+    }
 }

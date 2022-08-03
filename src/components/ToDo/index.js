@@ -1,6 +1,6 @@
 import React from "react";
 import "./ToDo.css";
-import { IoCloseCircle } from "react-icons/io5";
+import { GiCheckMark } from "react-icons/gi";
 const ToDo = ({ todos, task, id, completed, saveTodos }) => {
     return (
         <div className="todo">
@@ -11,19 +11,24 @@ const ToDo = ({ todos, task, id, completed, saveTodos }) => {
                     newTodo[indexTodo].completed = !completed;
                     saveTodos(newTodo);
                 }}
-                className={completed ? "completed" : ""}
+                className={completed ? "check-todo completed" : "check-todo"}
             >
-                ✓
+                <GiCheckMark
+                    className={
+                        completed
+                            ? "check-mark completed"
+                            : "inactive check-icon"
+                    }
+                />
             </div>
-            <div>{task}</div>
+            <p className={completed && "todo-text"}>{task}</p>
             <div
+                className="close-icon"
                 onClick={() => {
                     let newTodo = todos.filter((todo) => todo.id !== id);
                     saveTodos(newTodo);
                 }}
-            >
-                <IoCloseCircle size="30" className="gaaaaa" />
-            </div>
+            ></div>
         </div>
     );
 };

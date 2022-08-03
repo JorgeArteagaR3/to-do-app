@@ -3,6 +3,7 @@ import React from "react";
 const ToDoSearch = ({ searchValue, setSearchValue }) => {
     return (
         <input
+            className="todo-search"
             onChange={(e) => {
                 setSearchValue(e.target.value.toLowerCase());
             }}

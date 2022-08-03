@@ -10,7 +10,7 @@ const ToDoList = ({ todos, saveTodos }) => {
         return taskLower.includes(searchValue);
     });
     return (
-        <div>
+        <div className="todo-container">
             <ToDoCounter total={todos.length || "0"} done={done || "0"} />
             <ToDoSearch
                 searchValue={searchValue}

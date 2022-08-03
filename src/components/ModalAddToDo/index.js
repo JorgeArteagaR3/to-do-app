@@ -5,10 +5,16 @@ const ModalAddToDo = ({ modal, setModal, addTodo }) => {
 
     return (
         <div className="form-container">
-            <div className="new-todo-form">
+            <form
+                className="new-todo-form"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    inputValue && addTodo(inputValue);
+                    setModal(!modal);
+                }}
+            >
                 <label htmlFor="newtodo">Type a new thing To Do</label>
                 <input
-                    type="text"
                     id="newtodo"
                     value={inputValue}
                     onChange={(e) => {
@@ -19,22 +25,22 @@ const ModalAddToDo = ({ modal, setModal, addTodo }) => {
                     <button
                         type="button"
                         onClick={() => {
-                            addTodo(inputValue);
-                            setModal(!modal);
-                        }}
-                    >
-                        Add
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => {
                             setModal(!modal);
                         }}
                     >
                         Close
                     </button>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            inputValue && addTodo(inputValue);
+                            setModal(!modal);
+                        }}
+                    >
+                        Add
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

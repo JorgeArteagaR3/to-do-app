@@ -1,14 +1,72 @@
 .todo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 350px;
     height: 30px;
     margin: 0 auto;
     margin-top: 1em;
+    background-image: url("../../assets/imgs/input.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 230px;
+}
+.todo-text {
+    font-weight: 700;
+    text-decoration: underline;
+}
+.check-todo {
+    width: 30px;
+    height: 30px;
+    background-image: url("../../assets/imgs/check-box.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1em;
+    opacity: 0.4;
+}
+.check-todo > svg {
+    width: 10px;
+}
+.check-todo:hover {
+    opacity: 1;
 }
 .completed {
-    color: yellow;
+    opacity: 1;
 }
-.gaaaaa:hover {
-    fill: blue;
+
+.inactive {
+    display: none;
+}
+
+.close-icon {
+    background-image: url(../../assets/imgs/x.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+}
+.close-icon:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+@media only screen and (min-width: 1024px) {
+    .todo {
+        width: 600px;
+        background-size: 380px;
+    }
+    .check-todo {
+        width: 50px;
+    }
+    .check-todo > svg {
+        width: 15px;
+    }
+    .close-icon {
+        width: 40px;
+    }
 }

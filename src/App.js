@@ -29,26 +29,30 @@ function App() {
     return (
         <div className="App">
             <header>
-                <h1>Things To Do</h1>
+                <h1 className="logo">Things to do</h1>
             </header>
             <div className="main">
                 <ToDoList todos={todos} saveTodos={saveTodos} />
-                {modal && (
-                    <ModalAddToDo
-                        modal={modal}
-                        setModal={setModal}
-                        addTodo={addTodo}
-                    />
-                )}
-                <button
-                    type="button"
-                    onClick={() => {
-                        setModal(!modal);
-                    }}
-                >
-                    Add a new To Do
-                </button>
+
+                <div className="add-todo-btn-container">
+                    <button
+                        className="add-todo-btn"
+                        type="button"
+                        onClick={() => {
+                            setModal(!modal);
+                        }}
+                    >
+                        Add ToDo
+                    </button>
+                </div>
             </div>
+            {modal && (
+                <ModalAddToDo
+                    modal={modal}
+                    setModal={setModal}
+                    addTodo={addTodo}
+                />
+            )}
         </div>
     );
 }
