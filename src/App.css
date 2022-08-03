@@ -65,6 +65,15 @@ header {
 .add-todo-btn:hover {
     background: white;
 }
+.no-todos {
+    font-weight: 800;
+    width: 250px;
+    margin: 0 auto;
+    background-image: url(./assets/imgs/input.png);
+    background-size: cover;
+    background-position: center;
+    margin-top: 1em;
+}
 @media only screen and (min-width: 1024px) {
     .main {
         width: 700px;
@@ -88,5 +97,10 @@ header {
         width: 150px;
         height: 30px;
         font-size: 1.5rem;
+    }
+    .no-todos {
+        font-size: 1.5rem;
+        width: 350px;
+        height: 35px;
     }
 }

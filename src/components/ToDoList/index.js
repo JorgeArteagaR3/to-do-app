@@ -11,11 +11,15 @@ const ToDoList = ({ todos, saveTodos }) => {
     });
     return (
         <div className="todo-container">
-            <ToDoCounter total={todos.length || "0"} done={done || "0"} />
-            <ToDoSearch
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-            />
+            <ToDoCounter total={todos.length} done={done} />
+            {todos.length ? (
+                <ToDoSearch
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                />
+            ) : (
+                <></>
+            )}
             {todos.length ? (
                 searchedTodos.map((todo) => (
                     <ToDo
@@ -28,7 +32,7 @@ const ToDoList = ({ todos, saveTodos }) => {
                     />
                 ))
             ) : (
-                <p>Add a new To Do</p>
+                <p className="no-todos">Write your first ToDo</p>
             )}
         </div>
     );
